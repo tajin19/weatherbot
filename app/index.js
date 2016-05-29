@@ -1,6 +1,6 @@
 var angular = require('angular');
-var rootCtrl = require('./rootCtrl');
-var weatherApiService = require('./weatherApiService');
+var rootCtrl = require('./controllers/rootCtrl');
+var weatherApiService = require('./services/weatherApiService');
 
 var ngModule = angular.module('app', [])
   .controller('rootCtrl', rootCtrl)
