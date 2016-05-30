@@ -3,6 +3,12 @@ var uiRouter = require('angular-ui-router');
 var rootCtrl = require('./controllers/rootCtrl');
 var weatherApiService = require('./services/weatherApiService');
 
+//var logger = require('./logger');
+
+var home = require('ng-cache!./templates/home.html');
+var about = require('ng-cache!./templates/about.html');
+
+
 var env = process.env.NODE_ENV || 'dev';
 var mainConfig = require('json!../config/' + env + '.json');
 
@@ -19,20 +25,20 @@ var ngModule = angular.module('app', ['ui.router'])
 
 function appConfig($stateProvider, $urlRouterProvider, $locationProvider){
 
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/');
 
   $stateProvider
 
     // HOME STATES AND NESTED VIEWS ========================================
     .state('home', {
-      url: '/home',
-      templateUrl: 'app/templates/home.html'
+      url: '/',
+      templateUrl: 'home.html'
     })
 
     // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
     .state('about', {
       url: '/about',
-      templateUrl: 'app/templates/about.html'
+      templateUrl: 'about.html'
     });
 
   $locationProvider.html5Mode(true);

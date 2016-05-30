@@ -5,6 +5,23 @@ module.exports = {
     path: __dirname + '/public',
     filename: 'bundle.js'
   },
-  devtool: "#inline-source-map"
+  devtool: "#inline-source-map",
+  //watch: true,
+
+  module: {
+    loaders: [
+      {
+        test: /\.es6$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['', '.js', '.es6', '.html']
+  }
 
 };
