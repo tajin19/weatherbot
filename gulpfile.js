@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var nodemon = require('gulp-nodemon');
+var babel = require("gulp-babel");
 var webpack = require('webpack-stream');
 
 
@@ -22,6 +23,7 @@ gulp.task('pack', function(){
 
   return gulp.src('app/index.js')
     .pipe(webpack(require('./webpack.config.js')))
+    //.pipe(babel())
     .pipe(gulp.dest('public/'));
 
 });

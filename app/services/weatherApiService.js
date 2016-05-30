@@ -1,14 +1,14 @@
-module.exports = function weatherApiService($http, $q){
+module.exports = function weatherApiService($http, $q, config){
 
   return {
     getWeatherByZip: getWeatherByZip
-
   };
-
 
 
   function getWeatherByZip(zip){
 
+    var key = config.weatherApi.key;
+    console.log(key);
     var url = "http://api.openweathermap.org/data/2.5/weather";
 
     return $http({
@@ -16,7 +16,7 @@ module.exports = function weatherApiService($http, $q){
       url: url,
       params: {
         zip: zip + ',' + 'us',
-        APPID: '233b5ba211fdca8e85bf56a79411b928'
+        APPID: key
       }
     });
   }
