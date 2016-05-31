@@ -28,7 +28,7 @@
             <div class="col-lg-6 col-lg-offset-3">
                 <div class="input-group">
                     <span class="input-group-btn">
-                    <button class="btn btn-default input-lg" type="button" ng-click="performSearch()">
+                    <button class="btn btn-primary active input-lg" type="button" ng-click="performSearch()">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                     </span>
@@ -37,10 +37,54 @@
                            name="search"
                            class="form-control input-lg"
                            ng-model="searchInput"
-                           placeholder="{{searchPlaceHolder}}">
+                           placeholder="{{searchPlaceHolder}}"
+                           ng-keyup="$event.keyCode == 13 && performSearch()"
+                    >
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary active input-lg" type="button" ng-click="toggleMeasurement()" ng-bind-html="unitName"></button>
+                    </div>
                 </div><!-- /input-group -->
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
+        <div class="row" ng-repeat="weatherIndex in weatherIndices">
+            <div class="col-lg-6 col-lg-offset-3 weatherIndexContainer">
+                <div class="header row">
+                    <div class="col-lg-2">&nbsp;</div>
+                    <div class="col-lg-8 title" ng-bind="weatherIndex.data.name"></div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+                <div class="body row">
+                    <div class="tempContainer col-lg-3">
+                        <span class="tempMain">{{weatherIndex.data.main.temp | kelvin | number:0}}</span>
+                        <span class="symbolMain" ng-bind-html="unitName"></span>
+                    </div>
+                    <!--<div class="col-lg-1">-->
+                        <!--<div>-->
+                            <!--<img src="http://openweathermap.org/img/w/{{weatherIndex.data.weather[0].icon}}.png" alt=""/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-12">High&nbsp;
+                                <span class="high">{{weatherIndex.data.main.temp_max | kelvin | number:0}}</span>
+                                &nbsp;|&nbsp;&nbsp;Low&nbsp;
+                                <span class="low">{{weatherIndex.data.main.temp_min | kelvin | number:0}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">Humidity&nbsp;
+                                <span>{{weatherIndex.data.main.humidity}}</span>%
+                                &nbsp;|&nbsp;Pressure&nbsp;
+                                <span>{{weatherIndex.data.main.pressure}}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-5">&nbsp;</div>
+                </div>
+
+            </div>
+        </div>
 
         <div ui-view></div>
     </div>

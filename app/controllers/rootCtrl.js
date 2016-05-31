@@ -1,54 +1,50 @@
-module.exports = function RootCtrl($scope, $q, weatherApiService){
+module.exports = function RootCtrl($scope, $q, $sce, weatherApiService){
+
+  var currentUnit = 'c';
+  var units = {
+    'f': {
+      name: '&#8457;'
+    },
+    'c':{
+      name: '&#8451;'
+    }
+  };
+
+  $scope.unitName = $sce.trustAsHtml(units[currentUnit].name);
 
   $scope.searchPlaceHolder = "ZIP1, ZIP2...";
   $scope.searchInput = null;
-
+  $scope.weatherIndices = [];
   //ng-pattern="^\d{5}(?:-\d{4})?(?:,\s*\d{5}(?:-\d{4})?)+$"
 
   $scope.performSearch = function performSearch(){
-
     //TODO: check searchInput for validity
     var zipCodes = $scope.searchInput.split(',');
     var fetchZipCodes = [];
 
-
-    debugger;
     zipCodes.forEach(function(zipCode){
       fetchZipCodes.push(weatherApiService.getWeatherByZip(zipCode));
     });
 
     $q.all(fetchZipCodes)
       .then(function(response){
-
-        debugger;
+        $scope.weatherIndices = response;
       }, function(err){
-
-
-        debugger;
+        console.log(err);
       });
-
-
-    //weatherApiService.getWeatherByZip($scope.searchInput)
-    //.then(function(response){
-    //
-    //    debugger;
-    //  }, function(err){
-    //
-    //
-    //    debugger;
-    //  });
-
-
   };
 
-  //weatherApiService.getWeatherByZip(30068)
+  $scope.toggleMeasurement = function toggleMeasurement(){
+    currentUnit = (currentUnit === 'c') ? 'f' : 'c';
+    $scope.unitName = $sce.trustAsHtml(units[currentUnit].name);
+  };
+
+  //weatherApiService.getFiveDayByCityId()
   //.then(function(response){
   //
-  //    debugger;
   //  }, function(err){
   //
   //
-  //    debugger;
   //  });
 
 };

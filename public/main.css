@@ -1,3 +1,54 @@
-.search-row{
+.search-row {
     margin-top: 150px;
+}
+
+.temperature {
+    color: #FEAE3C;
+    font-family: open-sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 3em;
+    line-height: 4em;
+}
+
+.weatherIndexContainer {
+    height: 1em;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.weatherIndexContainer .header {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+    font-size: 1.5em;
+    line-height: 1.75em;
+}
+
+.weatherIndexContainer .header .title {
+    text-align: center;
+}
+
+.weatherIndexContainer .body .tempContainer {
+    padding-left: 15px;
+    line-height: 3em;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #FEAE3C;
+}
+
+.weatherIndexContainer .body .tempMain {
+    vertical-align: -0.3em;
+    font-size: 3.3em;
+}
+
+.weatherIndexContainer .body .symbolMain {
+    font-size: 1.5em;
+}
+
+.high{
+    font-weight: bold;
+    color: #d5202a;
+}
+
+.low{
+    font-weight: bold;
+    color: #0053ae;
 }

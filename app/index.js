@@ -19,6 +19,20 @@ var config = {
 var ngModule = angular.module('app', ['ui.router'])
   .constant('config', config)
   .config(appConfig)
+  .filter('kelvin', function() {
+
+    return function(input, mode) {
+
+      return (mode === 'c') ? input - 273.15 : 1.8 * (input - 273.15);
+
+      //if(mode === 'c'){
+      //  return input - 273.15;
+      //}else{
+      //  return 1.8 * (input - 273.15);
+      //}
+    };
+
+  })
   .controller('rootCtrl', rootCtrl)
   .service('weatherApiService', weatherApiService);
 

@@ -1,14 +1,13 @@
 module.exports = function weatherApiService($http, $q, config){
 
   return {
-    getWeatherByZip: getWeatherByZip
+    getWeatherByZip: getWeatherByZip,
+    getFiveDayByCityId: getFiveDayByCityId
   };
 
 
   function getWeatherByZip(zip){
 
-    var key = config.weatherApi.key;
-    console.log(key);
     var url = "http://api.openweathermap.org/data/2.5/weather";
 
     return $http({
@@ -16,8 +15,23 @@ module.exports = function weatherApiService($http, $q, config){
       url: url,
       params: {
         zip: zip + ',' + 'us',
-        APPID: key
+        APPID: config.weatherApi.key
       }
     });
+  }
+
+  function getFiveDayByCityId(cityId){
+
+    var url = "http://api.openweathermap.org/data/2.5/forecast";
+
+    return $http({
+      method: 'GET',
+      url: url,
+      params: {
+        id: cityId,
+        APPID: config.weatherApi.key
+      }
+    });
+
   }
 };
