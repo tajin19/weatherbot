@@ -32,6 +32,14 @@ server.register(require('inert'), (err) => {
     }
   });
 
+  server.route({
+    method: 'GET',
+    path: '/css',
+    handler: function (request, reply) {
+      reply.file('./public/main.css');
+    }
+  });
+
 });
 
 // Start the server

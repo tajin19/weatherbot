@@ -5,11 +5,43 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/8013aacc24.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600italic' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="app" >
-    <div ng-controller="rootCtrl">
-        <h1 ng-bind="message"></h1>
+    <div class="container-fluid" ng-controller="rootCtrl" ng-cloak>
+
+        <header id="header">
+            <div class="avada-row" style="padding-top:0px;padding-bottom:0px;" data-padding-top="0px" data-padding-bottom="0px">
+                <div class="logo" data-margin-right="0px" data-margin-left="0px" data-margin-top="10px" data-margin-bottom="8px" style="margin-right:0px;margin-top:10px;margin-left:0px;margin-bottom:8px;">
+                    <a href="http://florencehc.com">
+                        <img src="http://dev.blog.florencehc.com/wp-content/uploads/website-logos-194x55.png" alt="Florence Healthcare " class="normal_logo">
+                        <img src="http://dev.blog.florencehc.com/wp-content/uploads/website-logos-388x110.png" alt="Florence Healthcare " style="width:194px;max-height:55px; height: auto !important" class="retina_logo">
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="row search-row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default input-lg" type="button" ng-click="performSearch()">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                    </span>
+                    <input type="text"
+                           id="search"
+                           name="search"
+                           class="form-control input-lg"
+                           ng-model="searchInput"
+                           placeholder="{{searchPlaceHolder}}">
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+
         <div ui-view></div>
     </div>
     <script src="bundle" type="text/javascript"></script>

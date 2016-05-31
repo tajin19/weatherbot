@@ -16,8 +16,7 @@
     "inert": "^4.0.0",
     "json-loader": "^0.5.4",
     "less": "^2.7.1",
-    "ng-cache-loader": "0.0.15",
-    "url-loader": "^0.5.7"
+    "ng-cache-loader": "0.0.15"
   },
   "devDependencies": {
     "babel": "^6.5.2",
