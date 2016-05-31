@@ -4,31 +4,29 @@ module.exports = function appConfig($stateProvider, $urlRouterProvider, $locatio
 
   $stateProvider
 
-    // HOME STATES AND NESTED VIEWS ========================================
     .state('home', {
       url: '/',
-      templateUrl: 'home.html',
       views:{
         '': {
-          templateUrl: 'home.html'
+          templateUrl: 'search.html'
         }
-      }
+      },
+      controller: 'searchCtrl'
     })
 
-    // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
     .state('current', {
-      url: '/current',
+      url: '/current-weather',
+      params: {
+        weatherIndices: null
+      },
       views:{
         '': {
-          templateUrl: 'indexResults.html'
+          templateUrl: 'weather.html'
         }
-      }
+      },
+      controller: 'weatherCtrl'
     });
 
   $locationProvider.html5Mode(true);
 
-  //$locationProvider.html5Mode({
-  //  enabled: true,
-  //  requireBase: false
-  //});
 };

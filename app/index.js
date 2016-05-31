@@ -5,6 +5,10 @@ var uiRouter = require('angular-ui-router');
 
 //load angular pieces
 var rootCtrl = require('./controllers/rootCtrl');
+var searchCtrl = require('./controllers/searchCtrl');
+var weatherCtrl = require('./controllers/weatherCtrl');
+
+
 var weatherApiService = require('./services/weatherApiService');
 var kelvinFilter = require('./filters/kelvinConverter');
 var appConfig = require('./appConfig');
@@ -13,8 +17,8 @@ var appConfig = require('./appConfig');
 
 //load templates and place in ng-cache
 //once app becomes very large we might want to lazy load
-var home = require('ng-cache!./templates/home.html');
-var indexResults = require('ng-cache!./templates/indexResults.html');
+var home = require('ng-cache!./templates/search.html');
+var weather = require('ng-cache!./templates/weather.html');
 
 
 var env = process.env.NODE_ENV || 'dev';
@@ -31,4 +35,6 @@ var app = angular.module('app', ['ui.router'])
   .config(appConfig)
   .filter('kelvin', kelvinFilter)
   .controller('rootCtrl', rootCtrl)
+  .controller('searchCtrl', searchCtrl)
+  .controller('weatherCtrl', weatherCtrl)
   .service('weatherApiService', weatherApiService);

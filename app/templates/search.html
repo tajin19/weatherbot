@@ -1,0 +1,22 @@
+<div class="row search-row" ng-controller="searchCtrl">
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class="input-group">
+                    <span class="input-group-btn">
+                    <button class="btn btn-primary active input-lg" type="button" ng-click="performSearch()">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                    </span>
+            <input type="text"
+                   id="search"
+                   name="search"
+                   class="form-control input-lg"
+                   ng-model="searchInput"
+                   placeholder="{{searchPlaceHolder}}"
+                   ng-keyup="$event.keyCode == 13 && performSearch()"
+                    >
+            <div class="input-group-btn">
+                <button class="btn btn-primary active input-lg" type="button" ng-click="toggleMeasurement()" ng-bind-html="unitName"></button>
+            </div>
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
