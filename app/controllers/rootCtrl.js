@@ -1,6 +1,7 @@
-module.exports = function RootCtrl($scope, $q, $sce, weatherApiService){
+module.exports = function RootCtrl($scope, $q, $sce, $state, weatherApiService){
 
-  var currentUnit = 'c';
+  $scope.currentUnit = 'f';
+
   var units = {
     'f': {
       name: '&#8457;'
@@ -10,7 +11,7 @@ module.exports = function RootCtrl($scope, $q, $sce, weatherApiService){
     }
   };
 
-  $scope.unitName = $sce.trustAsHtml(units[currentUnit].name);
+  $scope.unitName = $sce.trustAsHtml(units[$scope.currentUnit].name);
 
   $scope.searchPlaceHolder = "ZIP1, ZIP2...";
   $scope.searchInput = null;
@@ -29,14 +30,16 @@ module.exports = function RootCtrl($scope, $q, $sce, weatherApiService){
     $q.all(fetchZipCodes)
       .then(function(response){
         $scope.weatherIndices = response;
+        debugger;
+        $state.go('current');
       }, function(err){
         console.log(err);
       });
   };
 
   $scope.toggleMeasurement = function toggleMeasurement(){
-    currentUnit = (currentUnit === 'c') ? 'f' : 'c';
-    $scope.unitName = $sce.trustAsHtml(units[currentUnit].name);
+    $scope.currentUnit = ($scope.currentUnit === 'c') ? 'f' : 'c';
+    $scope.unitName = $sce.trustAsHtml(units[$scope.currentUnit].name);
   };
 
   //weatherApiService.getFiveDayByCityId()

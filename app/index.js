@@ -1,68 +1,34 @@
+//load angular dependencies
+var jQuery = require('jquery');
 var angular = require('angular');
 var uiRouter = require('angular-ui-router');
+
+//load angular pieces
 var rootCtrl = require('./controllers/rootCtrl');
 var weatherApiService = require('./services/weatherApiService');
+var kelvinFilter = require('./filters/kelvinConverter');
+var appConfig = require('./appConfig');
 
 //var logger = require('./logger');
 
+//load templates and place in ng-cache
+//once app becomes very large we might want to lazy load
 var home = require('ng-cache!./templates/home.html');
-var about = require('ng-cache!./templates/about.html');
+var indexResults = require('ng-cache!./templates/indexResults.html');
 
 
 var env = process.env.NODE_ENV || 'dev';
 var mainConfig = require('json!../config/' + env + '.json');
 
+//pass backend configuration to angular app
 var config = {
   weatherApi: mainConfig.weatherApi
 };
 
-var ngModule = angular.module('app', ['ui.router'])
+//bring it all together and create angular module
+var app = angular.module('app', ['ui.router'])
   .constant('config', config)
   .config(appConfig)
-  .filter('kelvin', function() {
-
-    return function(input, mode) {
-
-      return (mode === 'c') ? input - 273.15 : 1.8 * (input - 273.15);
-
-      //if(mode === 'c'){
-      //  return input - 273.15;
-      //}else{
-      //  return 1.8 * (input - 273.15);
-      //}
-    };
-
-  })
+  .filter('kelvin', kelvinFilter)
   .controller('rootCtrl', rootCtrl)
   .service('weatherApiService', weatherApiService);
-
-
-function appConfig($stateProvider, $urlRouterProvider, $locationProvider){
-
-  $urlRouterProvider.otherwise('/');
-
-  $stateProvider
-
-    // HOME STATES AND NESTED VIEWS ========================================
-    .state('home', {
-      url: '/',
-      templateUrl: 'home.html'
-    })
-
-    // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-    .state('about', {
-      url: '/about',
-      templateUrl: 'about.html'
-    });
-
-  $locationProvider.html5Mode(true);
-
-  //$locationProvider.html5Mode({
-  //  enabled: true,
-  //  requireBase: false
-  //});
-}
-
-
-//console.log(weatherApiService);
-//console.log(weatherApiService.getGreeting);

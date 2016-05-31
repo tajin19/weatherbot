@@ -27,11 +27,17 @@
     text-align: center;
 }
 
+.weatherIndexContainer .header .moreIcon{
+    font-weight: bold;
+    text-align: right;
+}
+
 .weatherIndexContainer .body .tempContainer {
-    padding-left: 15px;
+    margin-left: 5px;
     line-height: 3em;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #FEAE3C;
+
 }
 
 .weatherIndexContainer .body .tempMain {
