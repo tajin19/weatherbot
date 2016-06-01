@@ -1,45 +1,45 @@
 <div ng-controller="weatherCtrl">
-    <div class="weatherIndexContainer" ng-repeat="weatherIndex in weatherIndices">
-        <div class="header row">
-            <div class="col-lg-2">&nbsp;</div>
-            <div class="col-lg-8 title" ng-bind="weatherIndex.data.name"></div>
-            <div class="col-lg-2 moreIcon">5 day&nbsp;
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </div>
-        </div>
-        <div class="body row">
-            <div class="tempContainer col-lg-2">
-                <span class="tempMain">{{weatherIndex.data.main.temp | kelvin:currentUnit | number:0}}</span>
-                <span class="symbolMain" ng-bind-html="unitName"></span>
-            </div>
-            <div class="col-lg-3">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <img src="http://openweathermap.org/img/w/{{weatherIndex.data.weather[0].icon}}.png" alt=""/>
-                    </div>
+    <div class="weatherIndexContainer row" ng-repeat="weatherIndex in weatherIndices">
+        <div class="col-lg-12">
+            <div class="header row">
+                <div class="col-lg-2 col-md-2">&nbsp;</div>
+                <div class="col-lg-8 col-md-8 title">{{weatherIndex.data.name}} &nbsp; {{weatherIndex.config.params.zip | zip:0}}</div>
+                <div class="col-lg-2 col-md-2 moreIcon">5 day&nbsp;
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">High&nbsp;
+            </div>
+            <div class="body row">
+                <div class="col-lg-2 tempContainer">
+                    <span class="tempMain">{{weatherIndex.data.main.temp | kelvin:currentUnit | number:0}}</span>
+                    <span class="symbolMain" ng-bind-html="unitName"></span>
+                </div>
+                <div class="col-lg-3 hiLoIconContainer">
+                    <div class="iconContainer">
+                        &nbsp;
+                        <!--<img src="http://openweathermap.org/img/w/{{weatherIndex.data.weather[0].icon}}.png" alt=""/>-->
+                    </div>
+                    <div class="hiloContainer">
+                        High&nbsp;
                         <span class="high">{{weatherIndex.data.main.temp_max | kelvin:currentUnit | number:0}}</span>
                         &nbsp;|&nbsp;&nbsp;Low&nbsp;
                         <span class="low">{{weatherIndex.data.main.temp_min | kelvin:currentUnit | number:0}}</span>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3">
-                <div>
-                    Humidity&nbsp;<span>{{weatherIndex.data.main.humidity}}</span>%
+                <div class="col-lg-3 humPressContainer">
+                    <div class="humidityContainer">
+                        Humidity&nbsp;<span>{{weatherIndex.data.main.humidity}}</span>%
+                    </div>
+                    <div class="pressureContainer">Pressure&nbsp;
+                        <span>{{weatherIndex.data.main.pressure}}</span>
+                    </div>
                 </div>
-                <div>Pressure&nbsp;
-                    <span>{{weatherIndex.data.main.pressure}}</span>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div>Wind Speed&nbsp;
-                    <span>{{weatherIndex.data.wind.speed | number:0}}</span>
-                </div>
-                <div>Wind Direction&nbsp;
-                    <span>{{weatherIndex.data.wind.deg | number:0}}</span>
+                <div class="col-lg-3 windContainer">
+                    <div class="speedContainer">Wind Speed&nbsp;
+                        <span>{{weatherIndex.data.wind.speed | number:0}}</span>
+                    </div>
+                    <div class="directionContainer">Wind Direction&nbsp;
+                        <span>{{weatherIndex.data.wind.deg | number:0}}</span>
+                    </div>
                 </div>
             </div>
         </div>

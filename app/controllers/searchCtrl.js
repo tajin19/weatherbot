@@ -7,7 +7,6 @@ module.exports = function searchCtrl($scope, $q, $sce, $state, weatherApiService
 
   $scope.performSearch = function performSearch(){
 
-    debugger;
     //TODO: check searchInput for validity
     var zipCodes = $scope.searchInput.split(',');
     var fetchZipCodes = [];

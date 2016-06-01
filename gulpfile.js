@@ -11,8 +11,7 @@ gulp.task('server', function () {
     watch: ["app.js", 'webpack.config.js', 'app/', 'config/'],
     ext: 'js',
     tasks: ['pack']
-    // Below i'm using es6 arrow functions but you can remove the arrow and have it a normal .on('restart', function() { // then place your stuff in here }
-  }).on('restart', () => {
+  }).on('restart', function() {
     console.log('Restarting');
   });
 })

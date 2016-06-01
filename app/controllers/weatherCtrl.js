@@ -1,7 +1,6 @@
 module.exports = function weatherCtrl($scope, $q, $sce, $state, weatherApiService){
 
   $scope.currentUnit = 'f';
-
   $scope.weatherIndices = $state.params.weatherIndices;
 
   debugger;

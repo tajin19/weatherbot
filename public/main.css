@@ -27,7 +27,7 @@
     text-align: center;
 }
 
-.weatherIndexContainer .header .moreIcon{
+.weatherIndexContainer .header .moreIcon {
     font-weight: bold;
     text-align: right;
 }
@@ -37,24 +37,151 @@
     line-height: 3em;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #FEAE3C;
-
 }
 
 .weatherIndexContainer .body .tempMain {
-    vertical-align: -0.3em;
-    font-size: 3.3em;
+    vertical-align: -0.4em;
+    font-size: 4em;
 }
 
 .weatherIndexContainer .body .symbolMain {
     font-size: 1.5em;
 }
 
-.high{
-    font-weight: bold;
-    color: #d5202a;
+.weatherIndexContainer .body .hiLoIconContainer {
+    margin-left: -13px;
 }
 
-.low{
+.weatherIndexContainer .hiLoIconContainer .iconContainer {
+}
+
+.weatherIndexContainer .hiLoIconContainer .hiLoContainer {
+}
+
+.high {
     font-weight: bold;
-    color: #0053ae;
+    color: #D5202A;
+}
+
+.low {
+    font-weight: bold;
+    color: #0053AE;
+}
+
+.weatherIndexContainer .body .humPressContainer {
+    margin-left: -27px;
+}
+
+.weatherIndexContainer .humPressContainer .humidityContainer {
+    margin-bottom: 0;
+    margin-top: 0px;
+}
+
+.weatherIndexContainer .humPressContainer .pressureContainer {
+}
+
+.weatherIndexContainer .body .windContainer {
+    margin-left: -42px;
+}
+
+.weatherIndexContainer .windContainer .speedContainer {
+}
+
+.weatherIndexContainer .windContainer .directionContainer {
+}
+.search-row {
+    margin-top: 150px;
+}
+
+.temperature {
+    color: #FEAE3C;
+    font-family: open-sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 3em;
+    line-height: 4em;
+}
+
+.weatherIndexContainer {
+    height: 1em;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.weatherIndexContainer .header {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    margin-bottom: 15px;
+    background-color: #173c68;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    line-height: 1.75em;
+}
+
+.weatherIndexContainer .header .title {
+    text-align: center;
+}
+
+.weatherIndexContainer .header .moreIcon {
+    font-weight: bold;
+    text-align: right;
+}
+
+.weatherIndexContainer .body .tempContainer {
+    margin-left: 5px;
+    line-height: 3em;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #FEAE3C;
+}
+
+.weatherIndexContainer .body .tempMain {
+    vertical-align: -0.4em;
+    font-size: 4em;
+}
+
+.weatherIndexContainer .body .symbolMain {
+    font-size: 1.5em;
+}
+
+.weatherIndexContainer .body .hiLoIconContainer {
+    margin-top: 4px;
+    margin-left: -13px;
+}
+
+.weatherIndexContainer .hiLoIconContainer .iconContainer {
+    height: 30px;
+}
+
+.weatherIndexContainer .hiLoIconContainer .hiLoContainer {
+    margin-top: 10px;
+}
+
+.high {
+    font-weight: bold;
+    color: #D5202A;
+}
+
+.low {
+    font-weight: bold;
+    color: #0053AE;
+}
+
+.weatherIndexContainer .body .humPressContainer {
+    margin-left: -27px;
+}
+
+.weatherIndexContainer .humPressContainer .humidityContainer {
+    margin-bottom: 0;
+}
+
+.weatherIndexContainer .humPressContainer .pressureContainer {
+    margin-top: 5px;
+}
+
+.weatherIndexContainer .body .windContainer {
+    margin-left: -42px;
+}
+
+.weatherIndexContainer .windContainer .speedContainer {
+}
+
+.weatherIndexContainer .windContainer .directionContainer {
+    margin-top: 5px;
 }
