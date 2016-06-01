@@ -1,187 +1,81 @@
-.search-row {
-    margin-top: 150px;
+@media (min-width: 769px) {
+    .resultGroup {
+        width: 100%;
+        /*height: 200px;*/
+    }
+
+    .resultGroup > div {
+        float: left;
+        clear: none;
+        height: 60px;
+        margin-top: 13px;
+    }
+
+    .tempContainer {
+        line-height: 3em;
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #FEAE3C;
+    }
+
+    .tempContainer .temp {
+        height: inherit;
+        float: left;
+        clear: none;
+        font-size: 5.2em;
+    }
+
+    .tempContainer .symbol {
+        height: inherit;
+        float: left;
+        clear: none;
+        font-size: 2.1em;
+        text-align:top;
+        line-height: 0.5;
+    }
+
+    .hiLoIconContainer {
+        height: inherit;
+        line-height: 2;
+        margin-left: 3px;
+    }
+
+    .iconContainer {
+    }
+
+    .hiLoContainer {
+    }
+
+    .high {
+        font-weight: bold;
+        color: #D5202A;
+    }
+
+    .low {
+        font-weight: bold;
+        color: #0053AE;
+    }
+
+    .humPressContainer {
+        height: inherit;
+        margin-left: 45px;
+        padding-top: 11px;
+        line-height: 1.5;
+    }
+
+    .windContainer {
+        height: inherit;
+        margin-left: 50px;
+        padding-top: 11px;
+        line-height: 1.5;
+    }
 }
 
-.temperature {
-    color: #FEAE3C;
-    font-family: open-sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 3em;
-    line-height: 4em;
+/*end media 769*/
+@media (min-width: 320px) {
+
+
 }
 
-.weatherIndexContainer {
-    height: 1em;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-.weatherIndexContainer .header {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #FFFFFF;
-    font-size: 1.5em;
-    line-height: 1.75em;
-}
-
-.weatherIndexContainer .header .title {
+.title {
     text-align: center;
-}
-
-.weatherIndexContainer .header .moreIcon {
-    font-weight: bold;
-    text-align: right;
-}
-
-.weatherIndexContainer .body .tempContainer {
-    margin-left: 5px;
-    line-height: 3em;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #FEAE3C;
-}
-
-.weatherIndexContainer .body .tempMain {
-    vertical-align: -0.4em;
-    font-size: 4em;
-}
-
-.weatherIndexContainer .body .symbolMain {
-    font-size: 1.5em;
-}
-
-.weatherIndexContainer .body .hiLoIconContainer {
-    margin-left: -13px;
-}
-
-.weatherIndexContainer .hiLoIconContainer .iconContainer {
-}
-
-.weatherIndexContainer .hiLoIconContainer .hiLoContainer {
-}
-
-.high {
-    font-weight: bold;
-    color: #D5202A;
-}
-
-.low {
-    font-weight: bold;
-    color: #0053AE;
-}
-
-.weatherIndexContainer .body .humPressContainer {
-    margin-left: -27px;
-}
-
-.weatherIndexContainer .humPressContainer .humidityContainer {
-    margin-bottom: 0;
-    margin-top: 0px;
-}
-
-.weatherIndexContainer .humPressContainer .pressureContainer {
-}
-
-.weatherIndexContainer .body .windContainer {
-    margin-left: -42px;
-}
-
-.weatherIndexContainer .windContainer .speedContainer {
-}
-
-.weatherIndexContainer .windContainer .directionContainer {
-}
-.search-row {
-    margin-top: 150px;
-}
-
-.temperature {
-    color: #FEAE3C;
-    font-family: open-sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 3em;
-    line-height: 4em;
-}
-
-.weatherIndexContainer {
-    height: 1em;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-.weatherIndexContainer .header {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-    margin-bottom: 15px;
-    background-color: #173c68;
-    color: #FFFFFF;
-    font-size: 1.5em;
-    line-height: 1.75em;
-}
-
-.weatherIndexContainer .header .title {
-    text-align: center;
-}
-
-.weatherIndexContainer .header .moreIcon {
-    font-weight: bold;
-    text-align: right;
-}
-
-.weatherIndexContainer .body .tempContainer {
-    margin-left: 5px;
-    line-height: 3em;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #FEAE3C;
-}
-
-.weatherIndexContainer .body .tempMain {
-    vertical-align: -0.4em;
-    font-size: 4em;
-}
-
-.weatherIndexContainer .body .symbolMain {
-    font-size: 1.5em;
-}
-
-.weatherIndexContainer .body .hiLoIconContainer {
-    margin-top: 4px;
-    margin-left: -13px;
-}
-
-.weatherIndexContainer .hiLoIconContainer .iconContainer {
-    height: 30px;
-}
-
-.weatherIndexContainer .hiLoIconContainer .hiLoContainer {
-    margin-top: 10px;
-}
-
-.high {
-    font-weight: bold;
-    color: #D5202A;
-}
-
-.low {
-    font-weight: bold;
-    color: #0053AE;
-}
-
-.weatherIndexContainer .body .humPressContainer {
-    margin-left: -27px;
-}
-
-.weatherIndexContainer .humPressContainer .humidityContainer {
-    margin-bottom: 0;
-}
-
-.weatherIndexContainer .humPressContainer .pressureContainer {
-    margin-top: 5px;
-}
-
-.weatherIndexContainer .body .windContainer {
-    margin-left: -42px;
-}
-
-.weatherIndexContainer .windContainer .speedContainer {
-}
-
-.weatherIndexContainer .windContainer .directionContainer {
-    margin-top: 5px;
 }

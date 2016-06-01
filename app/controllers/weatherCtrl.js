@@ -3,8 +3,6 @@ module.exports = function weatherCtrl($scope, $q, $sce, $state, weatherApiServic
   $scope.currentUnit = 'f';
   $scope.weatherIndices = $state.params.weatherIndices;
 
-  debugger;
-
   var units = {
     'f': {
       name: '&#8457;'
