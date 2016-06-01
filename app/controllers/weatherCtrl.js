@@ -2,6 +2,9 @@ module.exports = function weatherCtrl($scope, $q, $sce, $state, weatherApiServic
 
   $scope.currentUnit = 'f';
   $scope.weatherIndices = $state.params.weatherIndices;
+  $scope.weatherIndicesFiveDay = [];
+
+  $scope.showCaretDown = true;
 
   var units = {
     'f': {
@@ -19,12 +22,23 @@ module.exports = function weatherCtrl($scope, $q, $sce, $state, weatherApiServic
     $scope.unitName = $sce.trustAsHtml(units[$scope.currentUnit].name);
   };
 
-  //weatherApiService.getFiveDayByCityId()
-  //.then(function(response){
-  //
-  //  }, function(err){
-  //
-  //
-  //  });
+  $scope.getFiveDayForcast = function getFiveDayForcast(index){
+
+    $scope.showCaretDown = !$scope.showCaretDown;
+
+    var cityId = $scope.weatherIndices[index].data.id;
+
+    weatherApiService.getFiveDayByCityId(cityId)
+    .then(function(response){
+
+        $scope.weatherIndicesFiveDay[index] = response.data.list.slice(1,6);
+        debugger;
+      }, function(err){
+
+        debugger;
+      });
+  };
+
+
 
 };

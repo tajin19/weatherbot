@@ -4,7 +4,7 @@
         /*height: 200px;*/
     }
 
-    .resultGroup > div {
+    .resultGroupColumn {
         float: left;
         clear: none;
         height: 60px;

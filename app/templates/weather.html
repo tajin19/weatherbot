@@ -2,47 +2,21 @@
     <div class="panel panel-primary" ng-repeat="weatherIndex in weatherIndices">
             <div class="panel-heading">
                 <div class="row">
-                    <div class="col-lg-2 col-md-2">&nbsp;</div>
-                    <div class="col-lg-8 col-md-8 title">{{weatherIndex.data.name}} &nbsp; {{weatherIndex.config.params.zip | zip:0}}</div>
-                    <div class="col-lg-2 col-md-2 moreIcon">5 day&nbsp;
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    <div class="col-lg-3 col-md-3">&nbsp;</div>
+                    <div class="col-lg-6 col-md-6 title">{{weatherIndex.data.name}} &nbsp; {{weatherIndex.config.params.zip | zip:0}}</div>
+                    <div class="col-lg-3 col-md-3 moreIcon">
+                        <span ng-click="getFiveDayForcast($index)">5 Day Forecast&nbsp;
+                            <i class="fa fa-caret-down" aria-hidden="true" ng-show="showCaretDown"></i>
+                            <i class="fa fa-caret-down" aria-hidden="true" ng-hide="showCaretDown"></i>
+                        </span>
                     </div>
                 </div>
             </div>
             <div class="panel-body">
-                <div class="resultGroup">
-                    <div class="tempContainer">
-                        <div class="temp">{{weatherIndex.data.main.temp | kelvin:currentUnit | number:0}}</div>
-                        <div class="symbol" ng-bind-html="unitName"></div>
-                    </div>
-                    <div class="hiLoIconContainer">
-                        <div class="iconContainer">
-                            &nbsp;
-                            <!--<img src="http://openweathermap.org/img/w/{{weatherIndex.data.weather[0].icon}}.png" alt=""/>-->
-                        </div>
-                        <div class="hiloContainer">
-                            High&nbsp;
-                            <span class="high">{{weatherIndex.data.main.temp_max | kelvin:currentUnit | number:0}}</span>
-                            &nbsp;|&nbsp;&nbsp;Low&nbsp;
-                            <span class="low">{{weatherIndex.data.main.temp_min | kelvin:currentUnit | number:0}}</span>
-                        </div>
-                    </div>
-                    <div class="humPressContainer">
-                        <div class="humidityContainer">
-                            Humidity&nbsp;<span>{{weatherIndex.data.main.humidity}}</span>%
-                        </div>
-                        <div class="pressureContainer">Pressure&nbsp;
-                            <span>{{weatherIndex.data.main.pressure}}</span>
-                        </div>
-                    </div>
-                    <div class="windContainer">
-                        <div class="speedContainer">Wind Speed&nbsp;
-                            <span>{{weatherIndex.data.wind.speed | number:0}}</span>
-                        </div>
-                        <div class="directionContainer">Wind Direction&nbsp;
-                            <span>{{weatherIndex.data.wind.deg | number:0}}</span>
-                        </div>
-                    </div>
+                <index-result result="weatherIndex.data"></index-result>
+
+                <div class="resultGroup" ng-repeat="day in weatherIndicesFiveDay[$index]" style="clear:left;">
+                    <index-result result="day"></index-result>
                 </div>
             </div>
     </div>
