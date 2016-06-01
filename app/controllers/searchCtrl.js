@@ -1,6 +1,6 @@
 module.exports = function searchCtrl($scope, $q, $sce, $state, weatherApiService){
 
-  $scope.searchPlaceHolder = "ZIP1, ZIP2...";
+  $scope.searchPlaceHolder = "ZIP1, ZIP2, ETC";
   $scope.searchInput = null;
 
   //ng-pattern="^\d{5}(?:-\d{4})?(?:,\s*\d{5}(?:-\d{4})?)+$"

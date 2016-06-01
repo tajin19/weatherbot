@@ -4,7 +4,7 @@ module.exports = function weatherCtrl($scope, $q, $sce, $state, weatherApiServic
   $scope.weatherIndices = $state.params.weatherIndices;
   $scope.weatherIndicesFiveDay = [];
 
-  $scope.showCaretDown = true;
+  $scope.forecastOn = false;
 
   $scope.todayShowHeader = false;
   $scope.forecastShowHeader = true;
@@ -20,14 +20,22 @@ module.exports = function weatherCtrl($scope, $q, $sce, $state, weatherApiServic
 
   $scope.unitName = $sce.trustAsHtml(units[$scope.currentUnit].name);
 
+
   $scope.toggleMeasurement = function toggleMeasurement(){
     $scope.currentUnit = ($scope.currentUnit === 'c') ? 'f' : 'c';
     $scope.unitName = $sce.trustAsHtml(units[$scope.currentUnit].name);
   };
 
+
   $scope.getFiveDayForcast = function getFiveDayForcast(index){
 
-    $scope.showCaretDown = !$scope.showCaretDown;
+
+    $scope.forecastOn = !$scope.forecastOn;
+
+    if(!$scope.forecastOn){
+      $scope.weatherIndicesFiveDay[index] = [];
+      return;
+    }
 
     var cityId = $scope.weatherIndices[index].data.id;
 
@@ -35,20 +43,13 @@ module.exports = function weatherCtrl($scope, $q, $sce, $state, weatherApiServic
     .then(function(response){
 
         $scope.weatherIndicesFiveDay[index] = response.data.list.slice(1,6);
-
         $scope.weatherIndicesFiveDay[index].forEach(function(item){
-          item.date = new Date(item.dt_txt);
-
+          //TODO: fix this date issue
+          item.date = new Date(item.dt * 1000).toISOString();
         });
 
-        debugger;
-
       }, function(err){
-
-        debugger;
+        //TODO: handle this condition
       });
   };
-
-
-
 };
