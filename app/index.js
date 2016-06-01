@@ -12,16 +12,19 @@ var weatherCtrl = require('./controllers/weatherCtrl');
 var weatherApiService = require('./services/weatherApiService');
 var kelvinFilter = require('./filters/kelvinConverter');
 var zipFilter = require('./filters/zipFilter');
-var indexResult = require('./components/indexResult');
+var todayResult = require('./components/todayResult');
+var forecastResult = require('./components/forecastResult');
+
 var appConfig = require('./appConfig');
 
 //var logger = require('./logger');
 
 //load templates and place in ng-cache
 //once app becomes very large we might want to lazy load
-var home = require('ng-cache!./templates/search.html');
-var weather = require('ng-cache!./templates/weather.html');
-require('ng-cache!./templates/indexResult.html');
+require('ng-cache!./templates/search.html');
+require('ng-cache!./templates/weather.html');
+require('ng-cache!./templates/todayResult.html');
+require('ng-cache!./templates/forecastResult.html');
 
 
 var env = process.env.NODE_ENV || 'dev';
@@ -36,7 +39,9 @@ var config = {
 var app = angular.module('app', ['ui.router'])
   .constant('config', config)
   .config(appConfig)
-  .component('indexResult', indexResult)
+  .component('todayResult', todayResult)
+  .component('forecastResult', forecastResult)
+
   .filter('kelvin', kelvinFilter)
   .filter('zip', zipFilter)
   .controller('rootCtrl', rootCtrl)

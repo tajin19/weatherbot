@@ -1,0 +1,32 @@
+<div class="tempContainer resultGroupColumn">
+    <div class="temp">{{tCtrl.result.main.temp | kelvin:currentUnit | number:0}}</div>
+    <div class="symbol" ng-bind-html="unitName"></div>
+</div>
+<div class="hiLoIconContainer resultGroupColumn">
+    <div class="iconContainer">
+        &nbsp;
+        <!--<img src="http://openweathermap.org/img/w/{{tCtrl.result.data.weather[0].icon}}.png" alt=""/>-->
+    </div>
+    <div class="hiloContainer">
+        High&nbsp;
+        <span class="high">{{tCtrl.result.main.temp_max | kelvin:currentUnit | number:0}}</span>
+        &nbsp;|&nbsp;&nbsp;Low&nbsp;
+        <span class="low">{{tCtrl.result.main.temp_min | kelvin:currentUnit | number:0}}</span>
+    </div>
+</div>
+<div class="humPressContainer resultGroupColumn">
+    <div class="humidityContainer">
+        Humidity&nbsp;<span>{{tCtrl.result.main.humidity}}</span>%
+    </div>
+    <div class="pressureContainer">Pressure&nbsp;
+        <span>{{tCtrl.result.main.pressure}}</span>
+    </div>
+</div>
+<div class="windContainer resultGroupColumn">
+    <div class="speedContainer">Wind Speed&nbsp;
+        <span>{{tCtrl.result.wind.speed | number:0}}</span>
+    </div>
+    <div class="directionContainer">Wind Direction&nbsp;
+        <span>{{tCtrl.result.wind.deg | number:0}}</span>
+    </div>
+</div>

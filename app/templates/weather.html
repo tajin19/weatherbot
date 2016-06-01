@@ -13,10 +13,15 @@
                 </div>
             </div>
             <div class="panel-body">
-                <index-result result="weatherIndex.data"></index-result>
 
-                <div class="resultGroup" ng-repeat="day in weatherIndicesFiveDay[$index]" style="clear:left;">
-                    <index-result result="day"></index-result>
+                <!-- Today's Weather -->
+                <div class="resultGroup">
+                    <today-result result="weatherIndex.data"></today-result>
+                </div>
+
+                <!-- 5 Day Forcast Weather -->
+                <div class="resultGroup" ng-repeat="day in weatherIndicesFiveDay[$index]">
+                    <forecast-result result="day"></forecast-result>
                 </div>
             </div>
     </div>

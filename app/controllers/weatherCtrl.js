@@ -6,6 +6,9 @@ module.exports = function weatherCtrl($scope, $q, $sce, $state, weatherApiServic
 
   $scope.showCaretDown = true;
 
+  $scope.todayShowHeader = false;
+  $scope.forecastShowHeader = true;
+
   var units = {
     'f': {
       name: '&#8457;'
@@ -32,7 +35,14 @@ module.exports = function weatherCtrl($scope, $q, $sce, $state, weatherApiServic
     .then(function(response){
 
         $scope.weatherIndicesFiveDay[index] = response.data.list.slice(1,6);
+
+        $scope.weatherIndicesFiveDay[index].forEach(function(item){
+          item.date = new Date(item.dt_txt);
+
+        });
+
         debugger;
+
       }, function(err){
 
         debugger;
