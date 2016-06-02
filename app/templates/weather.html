@@ -19,6 +19,8 @@
                     <today-result result="weatherIndex.data"></today-result>
                 </div>
 
+                <div class="divider" ng-show="forecastOn">&nbsp;</div>
+
                 <!-- 5 Day Forcast Weather -->
                 <div class="resultGroup" ng-repeat="day in weatherIndicesFiveDay[$index]">
                     <forecast-result result="day"></forecast-result>
