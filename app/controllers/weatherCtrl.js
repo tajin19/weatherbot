@@ -1,14 +1,18 @@
 module.exports = function weatherCtrl($scope, $q, $sce, $state, weatherApiService){
 
   $scope.currentUnit = 'f';
-  $scope.weatherIndices = $state.params.weatherIndices;
-  $scope.weatherIndicesFiveDay = [];
-
-  $scope.forecastOn = false;
-
   $scope.todayShowHeader = false;
   $scope.forecastShowHeader = true;
+  $scope.weatherIndicesFiveDay = [];
 
+  $scope.weatherIndices = $state.params.weatherIndices;
+
+  //
+  $scope.weatherIndices.forEach(function(item){
+    item.forecastOn = false;
+  });
+
+  //TODO: Get unit swap working with components, will keep hidden for now
   var units = {
     'f': {
       name: '&#8457;'
@@ -29,10 +33,9 @@ module.exports = function weatherCtrl($scope, $q, $sce, $state, weatherApiServic
 
   $scope.getFiveDayForcast = function getFiveDayForcast(index){
 
+    $scope.weatherIndices[index].forecastOn = !$scope.weatherIndices[index].forecastOn;
 
-    $scope.forecastOn = !$scope.forecastOn;
-
-    if(!$scope.forecastOn){
+    if(!$scope.weatherIndices[index].forecastOn){
       $scope.weatherIndicesFiveDay[index] = [];
       return;
     }

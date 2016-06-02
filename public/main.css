@@ -77,6 +77,12 @@
         width: 100%;
         text-align: center;
         font-weight: bold;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        background: #337AB7;
+        color: #FFFFFF;
+        margin-bottom: 11px;
     }
 
     .divider {
@@ -92,6 +98,8 @@
 
 /*end media 769*/
 @media (min-width: 320px) {
+
+    /*TODO: implement styles for small screens*/
 }
 
 .siteTitle {
