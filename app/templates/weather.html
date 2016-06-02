@@ -2,7 +2,9 @@
     <div class="panel panel-primary" ng-repeat="weatherIndex in weatherIndices">
             <div class="panel-heading">
                 <div class="row">
-                    <div class="col-lg-3 col-md-3">&nbsp;</div>
+                    <div class="col-lg-3 col-md-3">
+                        <span ng-click="toggleMeasurement()" ng-bind-html="unitName"></span>
+                    </div>
                     <div class="col-lg-6 col-md-6 title">{{weatherIndex.data.name}} &nbsp; {{weatherIndex.config.params.zip | zip:0}}</div>
                     <div class="col-lg-3 col-md-3 moreIcon">
                         <span class="forecastToggle" ng-click="getFiveDayForcast($index)">

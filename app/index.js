@@ -11,6 +11,7 @@ var weatherCtrl = require('./controllers/weatherCtrl');
 
 var weatherApiService = require('./services/weatherApiService');
 var kelvinFilter = require('./filters/kelvinConverter');
+var speedFilter = require('./filters/speedFilter');
 var zipFilter = require('./filters/zipFilter');
 var todayResult = require('./components/todayResult');
 var forecastResult = require('./components/forecastResult');
@@ -43,6 +44,7 @@ var app = angular.module('app', ['ui.router'])
   .component('forecastResult', forecastResult)
 
   .filter('kelvin', kelvinFilter)
+  .filter('speed', speedFilter)
   .filter('zip', zipFilter)
   .controller('rootCtrl', rootCtrl)
   .controller('searchCtrl', searchCtrl)

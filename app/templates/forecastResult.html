@@ -1,7 +1,7 @@
 <div class="forecastHeader">{{frCtrl.result.date | date:'MMM d, yyyy'}}</div>
 <div class="tempContainer resultGroupColumn">
     <div class="temp">{{frCtrl.result.main.temp | kelvin:currentUnit | number:0}}</div>
-    <div class="symbol" ng-bind-html="unitName"></div>
+    <div class="symbol" ng-bind-html="$parent.unitName"></div>
 </div>
 <div class="hiLoIconContainer resultGroupColumn">
     <div class="iconContainer">
@@ -17,17 +17,17 @@
 </div>
 <div class="humPressContainer resultGroupColumn">
     <div class="humidityContainer">
-        Humidity&nbsp;<span>{{frCtrl.result.main.humidity}}</span>%
+        Humidity&nbsp;&nbsp;<span>{{frCtrl.result.main.humidity}}</span>%
     </div>
     <div class="pressureContainer">Pressure&nbsp;
         <span>{{frCtrl.result.main.pressure}}</span>
     </div>
 </div>
 <div class="windContainer resultGroupColumn">
-    <div class="speedContainer">Wind Speed&nbsp;
-        <span>{{frCtrl.result.wind.speed | number:0}}</span>
+    <div class="speedContainer">Wind Speed&nbsp;&nbsp;&nbsp;
+        <span>{{frCtrl.result.wind.speed | speed:'f' | number:0}}&nbsp;mph</span>
     </div>
     <div class="directionContainer">Wind Direction&nbsp;
-        <span>{{frCtrl.result.wind.deg | number:0}}</span>
+        <span>{{frCtrl.result.wind.deg | number:0}}&deg;</span>
     </div>
 </div>

@@ -3,6 +3,7 @@
         width: 100%;
         clear: both;
         /*height: 200px;*/
+        height: 77px;
     }
 
     .resultGroupColumn {
@@ -71,8 +72,8 @@
     }
 
     .forecastHeader {
-        margin-top: 25px;
-        padding-top: 5px;
+        margin-top: 42px;
+        padding-top: 0px;
         width: 100%;
         text-align: center;
         font-weight: bold;
@@ -81,7 +82,7 @@
     .divider {
         width: 100%;
         height: 4px;
-        margin-top: 15px;
+        margin-top: 25px;
         padding-left: 30px;
         padding-right: 30px;
         border-top: 1px solid rgba(34, 36, 38, 0.15);
