@@ -1,6 +1,6 @@
 # WEATHER BOT
 
-##### A simple weather retrieval SPA for 50 y.o. nurses and srtressed doctors.
+##### A simple weather retrieval SPA for 50 y.o. nurses and stressed doctors.
 What does it do?
 
  * Gets Today's Weather by zip code

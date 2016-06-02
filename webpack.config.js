@@ -11,7 +11,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.es6$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {

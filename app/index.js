@@ -3,12 +3,12 @@ var jQuery = require('jquery');
 var angular = require('angular');
 var uiRouter = require('angular-ui-router');
 
-//load angular pieces
+//load angular controllers
 var rootCtrl = require('./controllers/rootCtrl');
 var searchCtrl = require('./controllers/searchCtrl');
 var weatherCtrl = require('./controllers/weatherCtrl');
 
-
+//load filters, services and components
 var weatherApiService = require('./services/weatherApiService');
 var kelvinFilter = require('./filters/kelvinConverter');
 var speedFilter = require('./filters/speedFilter');
@@ -18,15 +18,12 @@ var forecastResult = require('./components/forecastResult');
 
 var appConfig = require('./appConfig');
 
-//var logger = require('./logger');
-
 //load templates and place in ng-cache
 //once app becomes very large we might want to lazy load
 require('ng-cache!./templates/search.html');
 require('ng-cache!./templates/weather.html');
 require('ng-cache!./templates/todayResult.html');
 require('ng-cache!./templates/forecastResult.html');
-
 
 var env = process.env.NODE_ENV || 'dev';
 var mainConfig = require('json!../config/' + env + '.json');

@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var nodemon = require('gulp-nodemon');
-var babel = require("gulp-babel");
 var webpack = require('webpack-stream');
 
 
@@ -18,11 +17,10 @@ gulp.task('server', function () {
 
 gulp.task('pack', function(){
 
-  console.log('Beginning webpack!');
+  console.log('Beginning Webpack');
 
   return gulp.src('app/index.js')
     .pipe(webpack(require('./webpack.config.js')))
-    //.pipe(babel())
     .pipe(gulp.dest('public/'));
 
 });
@@ -32,4 +30,5 @@ gulp.task('pack', function(){
 gulp.task('default', ['pack', 'server'], function(){
 
   console.log('Starting app.js with gulp...');
+
 });
