@@ -16,17 +16,17 @@
 </div>
 <div class="humPressContainer resultGroupColumn">
     <div class="humidityContainer">
-        Humidity&nbsp;&nbsp;<span>{{tCtrl.result.main.humidity}}</span>%
+        Humidity&nbsp;&nbsp;<span class="bold">{{tCtrl.result.main.humidity}}%</span>
     </div>
     <div class="pressureContainer">Pressure&nbsp;
-        <span>{{tCtrl.result.main.pressure}}</span>
+        <span class="bold">{{tCtrl.result.main.pressure}}&nbsp;hPa</span>
     </div>
 </div>
 <div class="windContainer resultGroupColumn">
-    <div class="speedContainer">Wind Speed&nbsp;&nbsp;&nbsp;
-        <span>{{tCtrl.result.wind.speed | speed:'f' | number:0}}</span>
+    <div class="speedContainer">Wind Speed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="bold">{{tCtrl.result.wind.speed | speed:'f' | number:0}}&nbsp;mph</span>
     </div>
     <div class="directionContainer">Wind Direction&nbsp;
-        <span>{{tCtrl.result.wind.deg | number:0}}&deg;</span>
+        <span class="bold">{{tCtrl.result.wind.deg | number:0}}&deg;</span>
     </div>
 </div>
