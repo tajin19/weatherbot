@@ -16,10 +16,10 @@
 </div>
 <div class="humPressContainer resultGroupColumn">
     <div class="humidityContainer">
-        Humidity&nbsp;&nbsp;<span class="bold">{{tCtrl.result.main.humidity}}%</span>
+        Humidity&nbsp;&nbsp;<span class="bold">{{tCtrl.result.main.humidity | number:0}}%</span>
     </div>
     <div class="pressureContainer">Pressure&nbsp;
-        <span class="bold">{{tCtrl.result.main.pressure}}&nbsp;hPa</span>
+        <span class="bold">{{tCtrl.result.main.pressure | number:0}}&nbsp;hPa</span>
     </div>
 </div>
 <div class="windContainer resultGroupColumn">
